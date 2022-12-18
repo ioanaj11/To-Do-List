@@ -11,8 +11,7 @@
     
     <div id="content">
         <div class="header">
-            <a href="index.html"><img src="home.png" alt="home icon"></a>
-            <h1>TO DO LIST</h1>
+            <h1><img src="to-do-list.png">TO DO LIST</h1>
             <button><img src="user.png"></button>
         </div>
         <div class="main">
@@ -21,11 +20,25 @@
                     <button><h2>All tasks</h2></button>
                     <button><img src="plus.png"></button>
                 </div>
-                <button><h3>Today</h3></button>
-                <button><h3>Upcoming</h3></button>
+
+                <ul>
+                    <li class="all-tasks-menu"><button><img src="scheduling.png"><h3>Today</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="deadline.png"><h3>Overdue</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="calendar.png"><h3>Upcoming</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="confirmation.png"><h3>Completed recently</h3></button></li>
+                </ul>
+
+                <br>
+                <hr>
+                               
+                <div class="project-line">
+                    <button><h2>Projects</h2></button>
+                    <button><img src="plus.png"></button>
+                </div>
+
             </div>
             <div class="task-display">
-                <p>displayed tasks</p>
+                
             </div>
         </div>
     </div>
