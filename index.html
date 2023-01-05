@@ -5,27 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-</head>
+<script defer src="bundle.js"></script></head>
 <body>
-    <script src="main.js" defer></script>
-    
+        
     <div id="content">
         <div class="header">
-            <h1><img src="to-do-list.png">TO DO LIST</h1>
-            <button><img src="user.png"></button>
+            <h1><img src="fd06d5d513ef61d43cc0.png">TO DO LIST</h1>
+            <button><img src="6bf6e08e71f3f51216d5.png"></button>
         </div>
         <div class="main">
             <div class="side-menu">
                 <div class="all-tasks-line">
                     <button><h2>All tasks</h2></button>
-                    <button><img src="plus.png"></button>
+                    <button id="addTaskBtn"><img src="d00998be8d29bc05cb9b.png" title="Add task"></button>
                 </div>
 
                 <ul>
-                    <li class="all-tasks-menu"><button><img src="scheduling.png"><h3>Today</h3></button></li>
-                    <li class="all-tasks-menu"><button><img src="deadline.png"><h3>Overdue</h3></button></li>
-                    <li class="all-tasks-menu"><button><img src="calendar.png"><h3>Upcoming</h3></button></li>
-                    <li class="all-tasks-menu"><button><img src="confirmation.png"><h3>Completed recently</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="4b59ba29906c2f748e64.png"><h3>Today</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="9747f38ff3359c6b807d.png"><h3>Overdue</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="85934255ba722de1e563.png"><h3>Upcoming</h3></button></li>
+                    <li class="all-tasks-menu"><button><img src="df8002ba416fbe03d243.png"><h3>Completed recently</h3></button></li>
                 </ul>
 
                 <br>
@@ -33,14 +32,58 @@
                                
                 <div class="project-line">
                     <button><h2>Projects</h2></button>
-                    <button><img src="plus.png"></button>
+                    <button id="addProjectBtn"><img src="d00998be8d29bc05cb9b.png" title="Add project"></button>
                 </div>
 
             </div>
             <div class="task-display">
-                
+                <div class="taskListHead">
+                    <h4>Priority:</h4>
+                    <h4>Task name:</h4>
+                    <h4>Project:</h4>
+                    <h4>Due date:</h4>
+                </div>
             </div>
         </div>
+    </div>
+    <div id="popup">
+        <h2>Add a new task:</h2>
+        <form id="addTaskForm">
+            <div>
+                <label for="task-name">Task name:</label>
+                <input type="text" name="task-name" id="task-name" required> 
+            </div>
+
+            <div>
+                <label for="task-details">Task details:</label>
+                <textarea name="task-details" id="task-details" rows="3" cols="30" maxlength="200" style="resize:none"></textarea>
+            </div>
+
+            <div>
+                <label for="due-date">Due date:</label>
+                <input type="date" name="due-date" id="due-date" required>
+            </div>
+           
+            <div>
+                <label for="project">Project:</label>
+                <select name="project" id="project">
+                    <option value="-"> - </option>
+                </select>
+            </div>
+            <div>
+                <label for="priority">Priority:</label>
+                <select name="priority" id="priority">
+                        <option value="low">Low></option>
+                        <option value="medium">Medium></option>
+                        <option value="high">High></option>
+                </select>
+            </div>
+            <div>
+                <button type="button" id="popupAddTaskBtn">Add task</button>
+                <button type="button" class="cancelAddTaskBtn">Cancel</button>
+            </div>
+        </form>
+
     </div>
 </body>
 </html>
