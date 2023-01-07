@@ -16,15 +16,15 @@
         <div class="main">
             <div class="side-menu">
                 <div class="all-tasks-line">
-                    <button><h2>All tasks</h2></button>
+                    <button id="allTasksBtn"><h2>All tasks</h2></button>
                     <button id="addTaskBtn"><img src="d00998be8d29bc05cb9b.png" title="Add task"></button>
                 </div>
 
                 <ul>
-                    <li class="all-tasks-menu"><button><img src="4b59ba29906c2f748e64.png"><h3>Today</h3></button></li>
-                    <li class="all-tasks-menu"><button><img src="9747f38ff3359c6b807d.png"><h3>Overdue</h3></button></li>
-                    <li class="all-tasks-menu"><button><img src="85934255ba722de1e563.png"><h3>Upcoming</h3></button></li>
-                    <li class="all-tasks-menu"><button><img src="df8002ba416fbe03d243.png"><h3>Completed recently</h3></button></li>
+                    <li class="all-tasks-menu"><button id="todayTasks"><img src="4b59ba29906c2f748e64.png"><h3>Today</h3></button></li>
+                    <li class="all-tasks-menu"><button id="overdueTasks"><img src="9747f38ff3359c6b807d.png"><h3>Overdue</h3></button></li>
+                    <li class="all-tasks-menu"><button id="upcomingTasks"><img src="85934255ba722de1e563.png"><h3>Upcoming</h3></button></li>
+                    <li class="all-tasks-menu"><button id="completedRecentlyTasks"><img src="df8002ba416fbe03d243.png"><h3>Completed</h3></button></li>
                 </ul>
 
                 <br>
@@ -38,6 +38,7 @@
             </div>
             <div class="task-display">
                 <div class="taskListHead">
+                    <h4>Status:</h4>
                     <h4>Priority:</h4>
                     <h4>Task name:</h4>
                     <h4>Project:</h4>
@@ -66,13 +67,13 @@
            
             <div>
                 <label for="project">Project:</label>
-                <select name="project" id="project">
+                <select name="project" id="project" required>
                     <option value="-"> - </option>
                 </select>
             </div>
             <div>
                 <label for="priority">Priority:</label>
-                <select name="priority" id="priority">
+                <select name="priority" id="priority" required>
                         <option value="low">Low></option>
                         <option value="medium">Medium></option>
                         <option value="high">High></option>

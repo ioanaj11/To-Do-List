@@ -15,6 +15,27 @@ function displayTasks(givenTasksList){
         taskDiv.setAttribute('id', `${i}`);
         taskDiv.classList.add('taskDiv');
 
+        const completeOrNot=document.createElement('button');
+        completeOrNot.textContent=`${givenTasksList[i].status}`;
+        completeOrNot.setAttribute('id', `${i}`)
+        completeOrNot.classList.add(`${givenTasksList[i].status}`);
+
+        completeOrNot.addEventListener('click', e=> {
+            if (completeOrNot.textContent=='Due') {
+                    completeOrNot.classList.add('Complete');
+                    completeOrNot.classList.remove('Due');
+                    completeOrNot.textContent='Complete';
+                    givenTasksList[i].status='Complete';}
+                else {
+                    completeOrNot.classList.remove('Complete');
+                    completeOrNot.classList.add('Due');
+                    completeOrNot.textContent='Due';
+                    givenTasksList[i].status='Due';}
+            
+        })
+
+        taskDiv.appendChild(completeOrNot);
+
         const flag=document.createElement('img');
         flag.classList.add('flagImg');
         switch(givenTasksList[i]['priority']){

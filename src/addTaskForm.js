@@ -37,7 +37,7 @@ function registerNewTask(){
     const taskProject=document.getElementById('project').value;
     const taskPriority=document.getElementById('priority').value;
 
-    const newTask=new task(taskName, taskProject, taskDetails, taskDue, taskPriority);
+    const newTask=new task(taskName, taskProject, taskDetails, taskDue, taskPriority, 'Due');
     tasksList.push(newTask);
 }
 

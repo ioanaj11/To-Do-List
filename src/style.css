@@ -160,8 +160,9 @@ hr{
     height:20px;
     width:100%;
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
     background-color: var(--hover-color);
+    align-content: center;
     }
 
 .taskDiv>button{
@@ -171,6 +172,26 @@ hr{
 .taskDiv>button>img{
     height:20px;
     width:auto;
+}
+
+.taskDiv>button:first-child{
+    border: 1px solid;
+    border-radius: 5px;
+    border-color: var(--header-color);
+    justify-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 80px;
+    font-size: 17px;
+}
+
+.Due{
+    background-color: rgb(214, 134, 134);
+}
+
+.Complete{
+    background-color: rgb(149, 240, 149);
 }
 
 h4{
@@ -271,7 +292,7 @@ form>div:last-child{
 .projectsDiv{
     overflow-x:hidden;
     overflow-y:auto;
-    width: 280px;
+    width: 85%;
 }
 
 .projectsDiv button{
@@ -280,7 +301,19 @@ form>div:last-child{
     line-height: 40px;
     color: black;
     border-radius: 5px;
+    margin: 0px;
     }
+
+.projectsDiv li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.projectsDiv img{
+    width: 15px;
+    height: auto;
+    margin:0px;
+}
 
 .projectsDiv button:hover{
     background-color: var(--hover-color);
@@ -289,4 +322,13 @@ form>div:last-child{
 .projectsDiv input{
    margin-left: 5px;
    width:150px;
+}
+
+.deleteProjectBtn{
+    display: none;
+    margin-left: 30px;
+}
+
+.projectsDiv li:hover>.deleteProjectBtn{
+    display: block;
 }
