@@ -7,6 +7,8 @@ import editImg from './assets/images/edit.png';
 import { task, tasksList } from './tasks';
 import { removeTask } from './removetask';
 import { clearTaskList } from './clearTaskList';
+import {editTaskForm} from './editTaskForm.js';
+import {removeAddTaskForm} from './addTaskForm.js';
 
 function displayTasks(givenTasksList){
     for(let i=0; i<givenTasksList.length; i++){
@@ -68,19 +70,49 @@ function displayTasks(givenTasksList){
 
         const detailsBtn=document.createElement('button');
         const detailsIcon=document.createElement('img');
+        detailsBtn.setAttribute('id', `${i}`);
+        detailsIcon.setAttribute('id', `${i}`);
         detailsIcon.setAttribute('src', '5557f95abde96def3fa7.png');
         detailsIcon.setAttribute('title', 'See details');
 
         detailsBtn.appendChild(detailsIcon);
         taskDiv.appendChild(detailsBtn);
 
+        detailsBtn.addEventListener('click', e=>
+            {const details=document.createElement('p');
+            details.textContent=`${tasksList[e.target.id]['description']}`
+              
+            const taskDetails=document.getElementById('taskDetails');
+            taskDetails.classList.add('active');
+
+            taskDetails.appendChild(details);
+
+            const backgroundDisplay=document.getElementById('content');
+            backgroundDisplay.classList.add('blurred');
+            })
+
         const editBtn=document.createElement('button');
         const editIcon=document.createElement('img');
+        editBtn.setAttribute('id', `${i}`);
+        editIcon.setAttribute('id', `${i}`);
         editIcon.setAttribute('src', '6f6481dd783e4c5d194e.png');
         editIcon.setAttribute('title', 'Edit');
 
         editBtn.appendChild(editIcon);
         taskDiv.appendChild(editBtn);
+
+        editBtn.addEventListener('click', e=>{
+            const backgroundDisplay=document.getElementById('content');
+            const popup=document.getElementById('popup');
+
+            backgroundDisplay.classList.add('blurred');
+            popup.classList.add('active');
+            
+            editTaskForm(e.target.id);
+
+            const removeAddTaskBtn=document.querySelector('.cancelAddTaskBtn');
+            removeAddTaskBtn.addEventListener('click', e=>removeAddTaskForm());
+        })
 
         const deleteBtn=document.createElement('button');
         const deleteIcon=document.createElement('img');

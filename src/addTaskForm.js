@@ -6,6 +6,12 @@ const backgroundDisplay=document.getElementById('content');
 const popup=document.getElementById('popup');
 
 function addTaskForm(){
+    const popupTitle=document.querySelector('#popup>h2');
+    popupTitle.textContent='Add a new task';
+
+    const saveTaskBtn=document.getElementById('popupAddTaskBtn');
+    saveTaskBtn.textContent='Add task';
+
     const projectsDropbox=document.getElementById('project');
     for(let i=1; i<projectsList.length; i++){
         const projectOption=document.createElement('option');
@@ -41,6 +47,17 @@ function registerNewTask(){
     tasksList.push(newTask);
 }
 
+function saveNewTask(id){
+    const taskName=document.getElementById('task-name').value;
+    const taskDetails=document.getElementById('task-details').value;
+    const taskDue=document.getElementById('due-date').value;
+    const taskProject=document.getElementById('project').value;
+    const taskPriority=document.getElementById('priority').value;
+
+    const newTask=new task(taskName, taskProject, taskDetails, taskDue, taskPriority, 'Due');
+    tasksList.splice(id, 1, newTask);
+}
+
 function reinitiateProjectList(){
     const projectsDropbox=document.getElementById('project');
     const projectOptions=document.querySelectorAll('.projectOptions');
@@ -51,3 +68,4 @@ function reinitiateProjectList(){
 export {addTaskForm};
 export {registerNewTask};
 export {removeAddTaskForm};
+export {saveNewTask};

@@ -2,7 +2,7 @@ import './style.css';
 import {projectsList, tasksList} from './tasks';
 import {displayTasks} from './displayTaskList.js';
 import {addTaskForm} from './addTaskForm.js';
-import {registerNewTask} from './addTaskForm.js';
+import {registerNewTask, saveNewTask} from './addTaskForm.js';
 import {removeAddTaskForm} from './addTaskForm.js';
 import {clearTaskList} from './clearTaskList.js';
 import {addProject, clearProjectsList} from './addProject.js';
@@ -21,10 +21,11 @@ addTaskBtn.addEventListener('click', e=> addTaskForm());
 
 const popupAddTaskBtn=document.getElementById('popupAddTaskBtn');
 popupAddTaskBtn.addEventListener('click', e=> 
-    {registerNewTask();
-    removeAddTaskForm();
-    clearTaskList();
-    displayTasks(tasksList)});
+    {   if (e.target.textContent == 'Add task') registerNewTask();
+            else saveNewTask(e.target.dataset.index);
+        removeAddTaskForm();
+        clearTaskList();
+        displayTasks(tasksList)});
 
 displayProjectsList(projectsList);
 
@@ -56,4 +57,16 @@ const completedRecentlyTasksBtn=document.getElementById('completedRecentlyTasks'
 completedRecentlyTasksBtn.addEventListener('click', e => {
     clearTaskList();
     displayTasks(tasksList.filter(task=> task.status == 'Complete'));
+})
+
+const closeDetailsBtn=document.getElementById('closeDetailsBtn');
+closeDetailsBtn.addEventListener('click', e=> {
+    const taskDetails=document.getElementById('taskDetails');
+    taskDetails.classList.remove('active');
+
+    const backgroundDisplay=document.getElementById('content');
+    backgroundDisplay.classList.remove('blurred');
+
+    const details=document.querySelector('p');
+    taskDetails.removeChild(details);
 })
