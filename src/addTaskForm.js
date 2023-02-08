@@ -45,6 +45,10 @@ function registerNewTask(){
 
     const newTask=new task(taskName, taskProject, taskDetails, taskDue, taskPriority, 'Due');
     tasksList.push(newTask);
+
+    localStorage.removeItem(tasksList);
+    localStorage.setItem('tasksList', JSON.stringify(tasksList));
+   
 }
 
 function saveNewTask(id){
@@ -56,6 +60,9 @@ function saveNewTask(id){
 
     const newTask=new task(taskName, taskProject, taskDetails, taskDue, taskPriority, 'Due');
     tasksList.splice(id, 1, newTask);
+
+    localStorage.removeItem(tasksList);
+    localStorage.setItem('tasksList', JSON.stringify(tasksList));
 }
 
 function reinitiateProjectList(){

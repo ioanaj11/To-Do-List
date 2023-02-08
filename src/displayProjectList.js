@@ -1,4 +1,3 @@
-import { addProject } from "./addProject";
 import { projectsList } from "./tasks";
 import {clearProjectsList} from "./addProject.js";
 import {clearTaskList} from './clearTaskList.js';
@@ -41,6 +40,8 @@ function displayProjectsList(list){
             { deleteProject(e.target.id);
               clearProjectsList();
               displayProjectsList(projectsList);
+              localStorage.removeItem('projectsList');
+              localStorage.setItem('projectsList', JSON.stringify(projectsList));
             });
     }
     sideMenu.appendChild(projectsDiv);

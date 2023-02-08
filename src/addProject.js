@@ -16,6 +16,8 @@ function addProject(){
         if (e.key === "Enter") {
             const newProject=inputNewProject.value;
             projectsList.push(newProject);
+            localStorage.removeItem('projectsList');
+            localStorage.setItem('projectsList', JSON.stringify(projectsList));
             clearProjectsList();
             displayProjectsList(projectsList);
     }})

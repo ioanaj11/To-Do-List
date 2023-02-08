@@ -4,7 +4,7 @@ import yellowflag from './assets/images/yellowflag.png';
 import binImg from './assets/images/bin.png';
 import detailsImg from './assets/images/information.png'
 import editImg from './assets/images/edit.png';
-import { task, tasksList } from './tasks';
+import { tasksList } from './tasks';
 import { removeTask } from './removetask';
 import { clearTaskList } from './clearTaskList';
 import {editTaskForm} from './editTaskForm.js';
@@ -27,12 +27,17 @@ function displayTasks(givenTasksList){
                     completeOrNot.classList.add('Complete');
                     completeOrNot.classList.remove('Due');
                     completeOrNot.textContent='Complete';
-                    givenTasksList[i].status='Complete';}
+                    givenTasksList[i].status='Complete';
+                    localStorage.removeItem('tasksList');
+                    localStorage.setItem('tasksList', JSON.stringify(tasksList));
+                }
                 else {
                     completeOrNot.classList.remove('Complete');
                     completeOrNot.classList.add('Due');
                     completeOrNot.textContent='Due';
-                    givenTasksList[i].status='Due';}
+                    givenTasksList[i].status='Due';
+                    localStorage.removeItem('tasksList');
+                    localStorage.setItem('tasksList', JSON.stringify(tasksList));}
             
         })
 
